@@ -1,17 +1,22 @@
-# Проект 4: Место
+# Project 4: Mesto
 
-### Обзор
-
+### brief overview
+* Intro
+* Link to the site
 * Figma
-* Картинки
+* JavaScript
+
+**Intro**
+This is a project about traveling.
+Created for Yandex. Practikum.
+The project was created using a layout in Figma.
+Also used the @media Directive to create adaptability.
+First use of JS to apply useability.
+
+**Site**
+* [Link to the site](https://miketogo.github.io/mesto/)
 
 **Figma**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* [Link to the layout in Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4?node-id=24702%3A187)
 
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
