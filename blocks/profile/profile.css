@@ -8,3 +8,14 @@
   align-items: center;
   justify-items: flex-start;
 }
+@media screen and (max-width:1196px){
+  .profile{
+    padding: 42px 0 0;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width:905px){
+  .profile{
+    max-width: calc(100% - 19px * 2);
+  }
+}

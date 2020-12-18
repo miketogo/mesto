@@ -11,3 +11,15 @@
   white-space: nowrap;
   overflow: hidden;
 }
+@media screen and (max-width:552px){
+  .profile__info-name{
+    max-width: calc(100vw - 24px - 19px - 19px);
+  }
+}
+@media screen and (max-width:905px){
+  .profile__info-name{
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+  }
+}

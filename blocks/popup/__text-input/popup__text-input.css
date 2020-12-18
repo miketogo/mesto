@@ -30,3 +30,11 @@
 .popup__text-input:first-child{
   margin-top: 54px;
 }
+@media screen and (max-width:905px){
+  .popup__text-input{
+    width: 100%;
+  }
+  .popup__text-input:first-child{
+    margin-top: 75px;
+  }
+}

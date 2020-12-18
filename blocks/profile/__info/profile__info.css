@@ -4,5 +4,12 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 0 0 30px;
-
+}
+@media screen and (max-width:1196px){
+  .profile__info{
+    height: unset;
+    justify-content: unset;
+    align-items: center;
+    margin: 26px 0 0;
+  }
 }

@@ -9,3 +9,9 @@
   grid-template-rows: repeat(auto-fit, 361px);
   grid-auto-rows: 361px;
 }
+@media screen and (max-width:1200px){
+  .elements{
+    max-width: calc(100% - 19px * 2);
+    margin: 36px auto 0;
+  }
+}
