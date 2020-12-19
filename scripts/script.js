@@ -7,19 +7,23 @@ let nameInput = document.querySelector('.popup__text-input_type_name');
 let jobInput = document.querySelector('.popup__text-input_type_job');
 let formElement = document.querySelector('.popup__form')
 
-editButton.addEventListener('click', function () {
+function PopupOpen(){
   popup.classList.add('popup_active')
   nameInput.value = nameText.textContent;
   jobInput.value = jobText.textContent;
-});
-closeButton.addEventListener('click', function () {
+};
+
+function PopupClose(){
   popup.classList.remove('popup_active')
-});
+};
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
     nameText.textContent = nameInput.value;
     jobText.textContent = jobInput.value;
-    popup.classList.remove('popup_active')
+    PopupClose();
 }
+
+editButton.addEventListener('click', PopupOpen);
+closeButton.addEventListener('click', PopupClose);
 formElement.addEventListener('submit', handleFormSubmit);

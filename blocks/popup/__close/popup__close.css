@@ -8,6 +8,9 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 0.3s ease-in-out;
+  border: none;
+  background-color: unset;
+  padding: 0;
 }
 .popup__close:hover{
   opacity: 0.6;
@@ -19,4 +22,7 @@
     height: 26px;
     right: 0;
   }
+}
+.popup__close:focus{
+  outline: none;
 }
