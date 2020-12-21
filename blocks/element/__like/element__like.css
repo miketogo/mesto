@@ -8,6 +8,7 @@
   transition: opaciry 0.3s ease-in-out;
   border: none;
   background-color: unset;
+  padding: 0;
 }
 .element__like:hover{
   opacity: 0.5;
