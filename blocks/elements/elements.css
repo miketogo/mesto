@@ -6,8 +6,8 @@
   column-gap: 17px;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(361px, 1fr));
-  grid-auto-rows: repeat(auto-fit, minmax(361px, 1fr));
+  grid-template-rows: repeat(auto-fit, 361px);
+  grid-auto-rows: repeat(auto-fit, 361px);
 }
 @media screen and (max-width:1200px){
   .elements{
