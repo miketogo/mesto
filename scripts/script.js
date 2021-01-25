@@ -132,6 +132,7 @@ function popupImageOpen(item){
   popupImage.classList.add('image-popup_active')
   popupImage.querySelector('.image-popup__image').src = item.src;
   popupImage.querySelector('.image-popup__title').textContent = item.alt;
+  popupImage.querySelector('.image-popup__image').alt = item.alt;
 };
 
 function popupImageClose(){
