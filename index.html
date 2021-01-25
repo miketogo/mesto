@@ -32,6 +32,7 @@
       <section class="elements">
         <template id="element">
           <div class="element">
+            <button class="element__trash" type="button" aria-label="Like"></button>
             <img class="element__image" src="" alt="">
             <div class="element__container">
               <h2 class="element__title"></h2>
@@ -39,48 +40,6 @@
             </div>
           </div>
         </template>
-        <!-- <div class="element">
-          <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-          <div class="element__container">
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
-          <div class="element__container">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
-          <div class="element__container">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
-          <div class="element__container">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
-          <div class="element__container">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
-          <div class="element__container">
-            <h2 class="element__title">Карачаево-Черкессия</h2>
-            <button class="element__like" type="button" aria-label="Like"></button>
-          </div>
-        </div> -->
       </section>
     </main>
     <footer class="footer">
@@ -92,7 +51,8 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="edit-profile" id="editProfileForm">
           <input name="name" type="text" class="popup__text-input popup__text-input_type_name" value="Жак-Ив Кусто">
-          <input name="job" type="text" class="popup__text-input popup__text-input_type_job" value="Исследователь океана">
+          <input name="job" type="text" class="popup__text-input popup__text-input_type_job"
+            value="Исследователь океана">
           <button type="submit" class="popup__submit-button">Сохранить</button>
         </form>
       </div>
@@ -100,12 +60,21 @@
     <div class="popup" id="AddCard">
       <div class="popup__container">
         <button class="popup__close" type="button" id="closeAdd" aria-label="Close"></button>
-        <h2 class="popup__title">Добавить карточку</h2>
+        <h2 class="popup__title">Новое место</h2>
         <form class="popup__form" name="add-card" id="addCardForm">
-          <input name="title" id="title" type="text" class="popup__text-input popup__text-input_type_name" value="" placeholder="Название">
-          <input name="photo" id="photo" type="text" class="popup__text-input popup__text-input_type_job" value="" placeholder="Ссылка на картинку">
-          <button type="submit" class="popup__submit-button">Сохранить</button>
+          <input name="title" id="title" type="text" class="popup__text-input popup__text-input_type_name" value=""
+            placeholder="Название">
+          <input name="photo" id="photo" type="text" class="popup__text-input popup__text-input_type_job" value=""
+            placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__submit-button">Создать</button>
         </form>
+      </div>
+    </div>
+    <div class="image-popup" id="ImagePopup">
+      <div class="image-popup__container">
+        <button class="image-popup__close" type="button" id="closeImage" aria-label="Close"></button>
+        <img class="image-popup__image" src="">
+        <h2 class="image-popup__title"></h2>
       </div>
     </div>
   </div>
