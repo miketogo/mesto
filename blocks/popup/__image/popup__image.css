@@ -1,10 +1,11 @@
-.image-popup__image{
+.popup__image{
 max-width: 75vw;
 max-height: 75vh;
+align-self: center;
 }
 
 @media screen and (max-width: 905px){
-  .image-popup__image{
+  .popup__image{
     max-height: 75vh;
   }
 }

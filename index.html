@@ -23,23 +23,14 @@
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button" aria-label="Edit"></button>
+            <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
           </div>
           <p class="profile__info-job">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button" aria-label="Add"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
       <section class="elements">
-        <template id="element">
-          <div class="element">
-            <button class="element__trash" type="button" aria-label="Like"></button>
-            <img class="element__image" src="#" alt="#">
-            <div class="element__container">
-              <h2 class="element__title"></h2>
-              <button class="element__like" type="button" aria-label="Like"></button>
-            </div>
-          </div>
-        </template>
+
       </section>
     </main>
     <footer class="footer">
@@ -47,37 +38,48 @@
     </footer>
     <div class="popup" id="ProfileEdit">
       <div class="popup__container">
-        <button class="popup__close" type="button" id="closeProfile" aria-label="Close"></button>
+        <button class="popup__close" type="button" id="closeProfile" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="edit-profile" id="editProfileForm">
-          <input name="name" type="text" class="popup__text-input popup__text-input_type_name" value="Жак-Ив Кусто">
+          <input name="name" type="text" class="popup__text-input popup__text-input_type_name" value="" placeholder="Ваше имя" required>
           <input name="job" type="text" class="popup__text-input popup__text-input_type_job"
-            value="Исследователь океана">
+            value="" placeholder="Ваша работа" required>
           <button type="submit" class="popup__submit-button">Сохранить</button>
         </form>
       </div>
     </div>
     <div class="popup" id="AddCard">
       <div class="popup__container">
-        <button class="popup__close" type="button" id="closeAdd" aria-label="Close"></button>
+        <button class="popup__close" type="button" id="closeAdd" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form" name="add-card" id="addCardForm">
-          <input name="title" id="title" type="text" class="popup__text-input popup__text-input_type_name" value=""
+          <input name="title" id="title" type="text" class="popup__text-input popup__text-input_type_title" value=""
             placeholder="Название">
-          <input name="photo" id="photo" type="text" class="popup__text-input popup__text-input_type_job" value=""
+          <input name="photo" id="photo" type="url" class="popup__text-input popup__text-input_type_photo" value=""
             placeholder="Ссылка на картинку">
           <button type="submit" class="popup__submit-button">Создать</button>
         </form>
       </div>
     </div>
-    <div class="image-popup" id="ImagePopup">
-      <div class="image-popup__container">
-        <button class="image-popup__close" type="button" id="closeImage" aria-label="Close"></button>
-        <img class="image-popup__image" src="#" alt="#">
-        <h2 class="image-popup__title"></h2>
+    <div class="popup" id="ImagePopup">
+      <div class="popup__container popup__container_type_image">
+        <button class="popup__close" type="button" id="closeImage" aria-label="Закрыть"></button>
+        <img class="popup__image" src="#" alt="#">
+        <h2 class="popup__title"></h2>
       </div>
     </div>
   </div>
+  <template id="element">
+    <div class="element">
+      <button class="element__trash" type="button" aria-label="Удалить"></button>
+      <img class="element__image" src="#" alt="#">
+      <div class="element__container">
+        <h2 class="element__title"></h2>
+        <button class="element__like" type="button" aria-label="Лайк"></button>
+      </div>
+    </div>
+  </template>
+  <script src="./scripts/initial-сards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 

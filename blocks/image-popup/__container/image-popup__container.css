@@ -1,9 +1,0 @@
-.image-popup__container{
-  max-width: calc(100% - 232px * 2);
-  position: relative;
-}
-@media screen and (max-width: 905px){
-  .image-popup__container{
-    max-width: calc(100% - 40px * 2);
-  }
-}
