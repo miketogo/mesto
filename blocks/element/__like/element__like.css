@@ -5,14 +5,17 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-right: 7.24px;
-  transition: opaciry 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   border: none;
   background-color: unset;
   padding: 0;
-}
-.element__like:hover{
-  opacity: 0.5;
   cursor: pointer;
+}
+
+@media screen and (min-width: 905px){
+  .element__like:hover{
+    opacity: 0.5;
+  }
 }
 .element__like:focus {
   outline: none;
