@@ -39,8 +39,7 @@ function handleProfileFormSubmit (evt) {
     evt.preventDefault();
     nameText.textContent = nameInput.value;
     jobText.textContent = jobInput.value;
-    popup = "profile"
-    closePopup(popup)
+    closePopup(popupProfile)
 }
 
 
@@ -49,8 +48,7 @@ function handleAddFormSubmit (evt) {
     const cardTitle = titleInput.value;
     const cardPhoto = photoInput.value;
     addCard(cardTitle, cardPhoto);
-    popup = "addCard"
-    closePopup(popup)
+    closePopup(popupAddCard);
     titleInput.value = '';
     photoInput.value = '';
 
