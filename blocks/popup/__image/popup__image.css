@@ -4,8 +4,3 @@ max-height: 75vh;
 align-self: center;
 }
 
-@media screen and (max-width: 905px){
-  .popup__image{
-    max-height: 75vh;
-  }
-}

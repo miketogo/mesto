@@ -4,8 +4,8 @@
   color: #FFFFFF;
   font-style: normal;
   font-weight: normal;
-  padding: 0;
   margin: 10px 0 0;
+  width: unset;
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
