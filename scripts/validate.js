@@ -12,8 +12,6 @@ const element = {
 
 
 const showInputError = (formElement, inputElement, errorMessage, element) => {
-  console.log(inputElement)
-  console.log(formElement)
   const errorElement = formElement.querySelector(`.${inputElement.name}-input-error`);
   inputElement.classList.add(element.inputErrorClass);
   errorElement.textContent = errorMessage;
@@ -42,7 +40,6 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, element) => {
-  console.log(hasInvalidInput(inputList));
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(element.inactiveButtonClass);
     buttonElement.disabled = true;
@@ -56,7 +53,6 @@ const setEventListeners = (formElement, element) => {
   const inputList = Array.from(formElement.querySelectorAll(element.inputSelector));
   const buttonElement = formElement.querySelector(element.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, element);
-  console.log(inputList)
   inputList.forEach((inputElement) => {
 
     inputElement.addEventListener('input', function () {
