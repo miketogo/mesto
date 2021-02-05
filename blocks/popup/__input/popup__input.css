@@ -1,4 +1,4 @@
-.popup__text-input{
+.popup__input{
   background-color: unset;
   font: unset;
   text-rendering: unset;
@@ -23,17 +23,17 @@
   color: #000000;
   outline: none;
 }
-.popup__text-input:focus {
+.popup__input:focus {
   border: 1px solid #000000;
 }
-.popup__text-input:first-child{
+.popup__input:first-child{
   margin-top: 54px;
 }
 @media screen and (max-width:905px){
-  .popup__text-input{
+  .popup__input{
     width: 100%;
   }
-  .popup__text-input:first-child{
+  .popup__input:first-child{
     margin-top: 75px;
   }
 }

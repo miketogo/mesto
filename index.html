@@ -36,14 +36,16 @@
     <footer class="footer">
       <p class="footer__text">&#64; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup" id="ProfileEdit">
+    <div class="popup" id="Profile">
       <div class="popup__container">
         <button class="popup__close" type="button" id="closeProfile" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-profile" id="editProfileForm">
-          <input name="name" type="text" class="popup__text-input popup__text-input_type_name" value="" placeholder="Ваше имя" required>
-          <input name="job" type="text" class="popup__text-input popup__text-input_type_job"
+        <form class="popup__form" name="edit-profile" id="editProfileForm" novalidate>
+          <input minlength="2" maxlength="40" name="name" type="text" class="popup__input popup__input_type_name" value="" placeholder="Ваше имя" required>
+          <span class="name-input-error popup__form-input-error"></span>
+          <input minlength="2" maxlength="200" name="job" type="text" class="popup__input popup__input_type_job"
             value="" placeholder="Ваша работа" required>
+          <span class=" job-input-error popup__form-input-error"></span>
           <button type="submit" class="popup__submit-button">Сохранить</button>
         </form>
       </div>
@@ -52,16 +54,18 @@
       <div class="popup__container">
         <button class="popup__close" type="button" id="closeAdd" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" name="add-card" id="addCardForm">
-          <input name="title" id="title" type="text" class="popup__text-input popup__text-input_type_title" value=""
+        <form class="popup__form" name="add-card" id="addCardForm" novalidate>
+          <input minlength="2" maxlength="30" name="title" id="title" type="text" class="popup__input popup__input_type_title" value=""
             placeholder="Название" required>
-          <input name="photo" id="photo" type="url" class="popup__text-input popup__text-input_type_photo" value=""
+            <span class="title-input-error popup__form-input-error"></span>
+          <input name="photo" id="photo" type="url" class="popup__input popup__input_type_photo" value=""
             placeholder="Ссылка на картинку" required>
+            <span class="photo-input-error popup__form-input-error"></span>
           <button type="submit" class="popup__submit-button">Создать</button>
         </form>
       </div>
     </div>
-    <div class="popup" id="ImagePopup">
+    <div class="popup" id="Image">
       <div class="popup__container popup__container_type_image">
         <button class="popup__close" type="button" id="closeImage" aria-label="Закрыть"></button>
         <img class="popup__image" src="#" alt="#">
@@ -79,8 +83,10 @@
       </div>
     </div>
   </template>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/initial-сards.js"></script>
   <script src="./scripts/script.js"></script>
+
 </body>
 
 </html>
