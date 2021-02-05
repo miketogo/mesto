@@ -74,3 +74,4 @@ const enableValidation = (element) => {
 };
 
 
+enableValidation(element);

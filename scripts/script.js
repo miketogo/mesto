@@ -16,16 +16,15 @@ const addformElement = document.querySelector('#addCardForm');
 const addButton = document.querySelector('.profile__add-button')
 const elementTemplate = document.querySelector('#element').content;
 const elementsSection = document.querySelector('.elements');
-const popupBackground = Array.from(document.querySelectorAll('.popup'))
-const inputArray = Array.from(document.querySelectorAll('.popup__input'))
+const popupBackgrounds = Array.from(document.querySelectorAll('.popup'))
+const image = popupImage.querySelector('.popup__image')
+const imageTitle = popupImage.querySelector('.popup__title_type_image')
 
 
-popupBackground.forEach((item) => {
+popupBackgrounds.forEach((item) => {
   item.addEventListener('mousedown', function(evt) {
     if (evt.target === evt.currentTarget) {
       closePopup(document.querySelector('.popup_active'))
-      titleInput.value = '';
-      photoInput.value = '';
     };
   })
 })
@@ -40,7 +39,6 @@ initialCards.forEach(function (item) {
 function closePopupByEscape (evt){
   if (evt.key === "Escape") {
     closePopup(document.querySelector('.popup_active'))
-    document.removeEventListener('keydown', closePopupByEscape)
   }
 }
 
@@ -51,6 +49,7 @@ function openPopup(popup){
 
 function closePopup(popup){
     popup.classList.remove('popup_active')
+    document.removeEventListener('keydown', closePopupByEscape)
 };
 
 function handleProfileFormSubmit (evt) {
@@ -76,7 +75,7 @@ editButton.addEventListener('click', function () {
   nameInput.value = nameText.textContent;
   jobInput.value = jobText.textContent;
   openPopup(popupProfile)
-  enableValidation(element);
+
 });
 
 closeProfileButton.addEventListener('click', function () {
@@ -86,13 +85,12 @@ closeProfileButton.addEventListener('click', function () {
 profileformElement.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', function () {
+  titleInput.value = '';
+  photoInput.value = '';
   openPopup(popupAddCard)
-  enableValidation(element);
 });
 
 closeAddButton.addEventListener('click', function () {
-  titleInput.value = '';
-  photoInput.value = '';
   closePopup(popupAddCard)
 });
 
@@ -114,12 +112,10 @@ function createCard(cardTitle, cardPhoto){
   cardElement.querySelector('.element__title').textContent = cardTitle;
   cardPhotoElement.addEventListener('click', function (evt) {
     const item = evt.target;
-    popup = "image";
     openPopup(popupImage);
-    const image = popupImage.querySelector('.popup__image')
-    image.src = item.src;
-    popupImage.querySelector('.popup__title_type_image').textContent = item.alt;
-    image.alt = item.alt;
+    image.src = cardPhoto
+    image.alt = cardTitle
+    imageTitle.textContent = cardTitle
 });
   cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like_active');
