@@ -4,6 +4,7 @@
   box-sizing: border-box;
   opacity: 0.2;
   color: #000000;
+  cursor: default;
 }
 .popup__submit-button_disabled:hover{
   opacity: 0.2;
