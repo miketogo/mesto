@@ -1,5 +1,6 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js"
+import { initialCards } from "./initial-сards.js"
 const editButton = document.querySelector('.profile__edit-button');
 const closeProfileButton = document.querySelector('#closeProfile');
 const closeAddButton = document.querySelector('#closeAdd');
