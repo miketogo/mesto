@@ -7,7 +7,7 @@ const closeAddButton = document.querySelector('#closeAdd');
 const closeImageButton = document.querySelector('#closeImage');
 const popupProfile = document.querySelector('#Profile');
 const popupAddCard = document.querySelector('#AddCard');
-const popupImage = document.querySelector('#Image');
+export const popupImage = document.querySelector('#Image');
 const nameText = document.querySelector('.profile__info-name');
 const jobText = document.querySelector('.profile__info-job');
 const nameInput = document.querySelector('.popup__input_type_name');
@@ -17,6 +17,8 @@ const photoInput = document.querySelector('#photo');
 const profileformElement = document.querySelector('#editProfileForm');
 const addformElement = document.querySelector('#addCardForm');
 const addButton = document.querySelector('.profile__add-button')
+export const image = document.querySelector('.popup__image')
+export const imageTitle = popupImage.querySelector('.popup__title_type_image')
 const configValidation = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -50,18 +52,18 @@ popupBackgrounds.forEach((item) => {
   })
 })
 
-function closePopupByEscape (evt){
+export function closePopupByEscape (evt){
   if (evt.key === "Escape") {
     closePopup(document.querySelector('.popup_active'))
   }
 }
 
-function openPopup(popup){
+export function openPopup(popup){
     popup.classList.add('popup_active')
     document.addEventListener('keydown', closePopupByEscape)
 };
 
-function closePopup(popup){
+export function closePopup(popup){
     popup.classList.remove('popup_active')
     document.removeEventListener('keydown', closePopupByEscape)
 };
