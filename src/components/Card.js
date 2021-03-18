@@ -1,9 +1,9 @@
-import {image , imageTitle, openPopup, popupImage} from "./index.js"
-export class Card {
-  constructor(title, photo, element){
+export default class Card {
+  constructor(title, photo, element, handleCardClick){
     this.cardPhoto = photo;
     this.cardTitle = title;
     this.element = element;
+    this.handleCardClick = handleCardClick;
   }
 
   _getTemplate(){
@@ -22,16 +22,7 @@ export class Card {
   }
 
   _setEventListeners(){
-    this._element.querySelector('.element__image').addEventListener('click', function (evt) {
-
-
-      const item = evt.target;
-      console.log(item)
-      openPopup(popupImage)
-      image.src = item.src
-      image.alt = item.alt
-      imageTitle.textContent = item.alt
-  });
+    this.handleCardClick();
     this._element.querySelector('.element__like').addEventListener('click', function (evt) {
       evt.target.classList.toggle('element__like_active');
   });

@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "### brief overview * Intro * Link to the site * Figma * JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miketogo/mesto.git"
+  },
+  "author": "Mikhail Surikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miketogo/mesto/issues"
+  },
+  "homepage": "https://github.com/miketogo/mesto#readme"
+}
