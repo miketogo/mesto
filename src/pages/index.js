@@ -27,6 +27,7 @@ import {editButton,
   elementsSection,
   popupBackgrounds
 } from "../utilis/constants.js"
+import './index.css'
 
 
 console.log(Card)
