@@ -1,4 +1,4 @@
-import {closeAddButton, closeProfileButton, closeImageButton} from "../utilis/constants.js"
+import {closeAddButton, closeProfileButton, closeImageButton, popupBackgrounds} from "../utilis/constants.js"
 
 export default class Popup {
   constructor(popupSelector){
@@ -23,5 +23,13 @@ export default class Popup {
     closeAddButton.addEventListener('click', this.close.bind(this));
     closeProfileButton.addEventListener('click', this.close.bind(this));
     closeImageButton.addEventListener('click', this.close.bind(this));
+    popupBackgrounds.forEach((item) => {
+        item.addEventListener('mousedown', this._handleBackgroundClose.bind(this))
+      })
+    }
+  _handleBackgroundClose(evt){
+    if (evt.target === evt.currentTarget) {
+      this.close()
+    };
   }
 }
