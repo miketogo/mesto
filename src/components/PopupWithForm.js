@@ -1,5 +1,4 @@
 import Popup from "./Popup.js";
-import {nameInput, jobInput, titleInput, photoInput} from "../utilis/constants.js"
 
 export default class PopupWithForm extends Popup{
   constructor({popupSelector, submit}){
