@@ -1,17 +1,15 @@
-import {closeAddButton, closeProfileButton, closeImageButton, popupBackgrounds} from "../utilis/constants.js"
-
 export default class Popup {
   constructor(popupSelector){
     this.popup = popupSelector;
+    this._handleEscClose = this._handleEscClose.bind(this)
   }
   open(){
-    this.setEventListeners()
     this.popup.classList.add('popup_active')
-    document.addEventListener('keydown', this._handleEscClose.bind(this))
+    document.addEventListener('keydown', this._handleEscClose)
   }
   close(){
     this.popup.classList.remove('popup_active')
-    document.removeEventListener('keydown', this._handleEscClose.bind(this))
+    document.removeEventListener('keydown', this._handleEscClose)
   }
   _handleEscClose(evt){
     if (evt.key === "Escape") {
@@ -19,14 +17,9 @@ export default class Popup {
     }
   }
   setEventListeners(){
-    console.log(closeAddButton)
-    closeAddButton.addEventListener('click', this.close.bind(this));
-    closeProfileButton.addEventListener('click', this.close.bind(this));
-    closeImageButton.addEventListener('click', this.close.bind(this));
-    popupBackgrounds.forEach((item) => {
-        item.addEventListener('mousedown', this._handleBackgroundClose.bind(this))
-      })
-    }
+    this.popup.querySelector('.popup__close').addEventListener('click', this.close.bind(this));
+    this.popup.addEventListener('mousedown', this._handleBackgroundClose.bind(this))
+  }
   _handleBackgroundClose(evt){
     if (evt.target === evt.currentTarget) {
       this.close()

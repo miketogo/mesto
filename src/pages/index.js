@@ -34,25 +34,52 @@ console.log(Card)
 console.log(FormValidator)
 
 
-function handleCardClick (){
-  this._element.querySelector('.element__image').addEventListener('click', function (evt) {
+
+function createCard(title, photo, template){
+  const card = new Card(title, photo, template, handleCardClick);
+  const cardElement = card.generateCard();
+  return cardElement
+}
+
+const imagePopup = new PopupWithImage(popupImage)
+imagePopup.setEventListeners()
+
+const addCardPopup = new PopupWithForm({
+  popupSelector: popupAddCard,
+  submit: (values) =>{
+    const cardTitle = titleInput.value;
+    const cardPhoto = photoInput.value;
+    cardsList.prependItem(createCard(cardTitle, cardPhoto, 'element'))
+
+    addCardPopup.close()
+
+  }
+})
+addCardPopup.setEventListeners()
+
+const editPorofilePopup = new PopupWithForm({
+  popupSelector: popupProfile,
+  submit: (values) =>{
+      userInfo.setUserInfo(values)
+      editPorofilePopup.close()
+      evt.preventDefault();
+      userInfo.setUserInfo(editPorofilePopup._getInputValues())
+
+      editPorofilePopup.close()
 
 
-    const item = evt.target;
-    console.log(item)
-    const imagePopup = new PopupWithImage(popupImage)
-    imagePopup.open(item)
+  }
+})
+editPorofilePopup.setEventListeners()
 
-
-});
+function handleCardClick (evt){
+    imagePopup.open(evt.target)
 }
 
  const cardsList = new Section({
     items: initialCards,
     renderer: (cardItem) => {
-      const card = new Card(cardItem.name, cardItem.link, 'element', handleCardClick);
-      const cardElement = card.generateCard();
-      cardsList.addItem(cardElement);
+      cardsList.addItem(createCard(cardItem.name, cardItem.link, 'element'));
     }
   },
   '.elements'
@@ -110,18 +137,7 @@ const userInfo = new UserInfo({
   jobSelector: '.profile__info-job'
 })
 
-const editPorofilePopup = new PopupWithForm({
-  popupSelector: popupProfile,
-  submit: () =>{
-    function submit(evt){
-      evt.preventDefault();
-      userInfo.setUserInfo(editPorofilePopup._getInputValues())
 
-      editPorofilePopup.close()
-      profileformElement.removeEventListener('submit', submit)
-    }
-    profileformElement.addEventListener('submit', submit)}
-})
 editButton.addEventListener('click', function () {
   // nameInput.value = nameText.textContent;
   // jobInput.value = jobText.textContent;
@@ -139,25 +155,7 @@ editButton.addEventListener('click', function () {
 //   closePopup(document.querySelector('.popup_active'))
 // });
 
-const addCardPopup = new PopupWithForm({
-  popupSelector: popupAddCard,
-  submit: () =>{
-    addformElement.addEventListener('submit', handleAddFormSubmit);
-    function handleAddFormSubmit(evt)
-    {evt.preventDefault();
-    const cardTitle = titleInput.value;
-    const cardPhoto = photoInput.value;
-    const card = new Card(cardTitle, cardPhoto, 'element', handleCardClick);
-    const cardElement = card.generateCard();
-    cardsList.addItem(cardElement);
-    addCardPopup.close()
-    titleInput.value = '';
-    photoInput.value = '';
-    addformElement.removeEventListener('submit', handleAddFormSubmit)
-  }
 
-  }
-})
 
 addButton.addEventListener('click', function () {
   // titleInput.value = '';
