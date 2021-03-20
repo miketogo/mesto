@@ -6,26 +6,15 @@ import PopupWithForm from "../components/PopupWithForm.js"
 import UserInfo from "../components/UserInfo.js"
 import PopupWithImage from "../components/PopupWithImage.js"
 import {editButton,
-  closeProfileButton,
-  closeAddButton,
-  closeImageButton,
   popupProfile,
   popupAddCard,
   popupImage,
-  nameText,
-  jobText,
   nameInput,
   jobInput,
   titleInput,
   photoInput,
-  profileformElement,
-  addformElement,
   addButton,
-  image,
-  imageTitle,
   configValidation,
-  elementsSection,
-  popupBackgrounds
 } from "../utilis/constants.js"
 import './index.css'
 
