@@ -48,7 +48,6 @@ const editPorofilePopup = new PopupWithForm({
   popupSelector: popupProfile,
   submit: (values) =>{
       userInfo.setUserInfo(values)
-      userInfo.setUserInfo(editPorofilePopup._getInputValues())
         }
 })
 editPorofilePopup.setEventListeners()
