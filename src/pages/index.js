@@ -35,13 +35,11 @@ imagePopup.setEventListeners()
 
 const addCardPopup = new PopupWithForm({
   popupSelector: popupAddCard,
-  submit: (values) =>{
-    const cardTitle = titleInput.value;
-    const cardPhoto = photoInput.value;
+  submit: ({title, photo}) =>{
+    console.log(title, photo)
+    const cardTitle = title;
+    const cardPhoto = photo;
     cardsList.prependItem(createCard(cardTitle, cardPhoto, 'element'))
-
-    addCardPopup.close()
-
   }
 })
 addCardPopup.setEventListeners()
@@ -50,14 +48,8 @@ const editPorofilePopup = new PopupWithForm({
   popupSelector: popupProfile,
   submit: (values) =>{
       userInfo.setUserInfo(values)
-      editPorofilePopup.close()
-      evt.preventDefault();
       userInfo.setUserInfo(editPorofilePopup._getInputValues())
-
-      editPorofilePopup.close()
-
-
-  }
+        }
 })
 editPorofilePopup.setEventListeners()
 
