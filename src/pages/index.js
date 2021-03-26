@@ -77,8 +77,12 @@ const confirmPopup = new PopupConfirm({
       console.log(err); // выведем ошибку в консоль
     })
     .finally(()=>{
-      popupConfirm.querySelector('.popup__submit-button').textContent = 'Да'
       confirmPopup.close()
+      setTimeout(() => {
+        popupConfirm.querySelector('.popup__submit-button').textContent = 'Да'
+      }, 1000);
+
+
     })
   }
 })
@@ -132,8 +136,12 @@ const addCardPopup = new PopupWithForm({
       console.log(err); // выведем ошибку в консоль
     })
     .finally(()=>{
-      popupAddCard.querySelector('.popup__submit-button').textContent = 'Создать'
       addCardPopup.close()
+      setTimeout(() => {
+        popupAddCard.querySelector('.popup__submit-button').textContent = 'Создать'
+      }, 1000);
+
+
     })
 
   }
@@ -152,8 +160,12 @@ const editPorofilePopup = new PopupWithForm({
         console.log(err); // выведем ошибку в консоль
       })
       .finally(()=>{
-        popupProfile.querySelector('.popup__submit-button').textContent = 'Сохранить'
         editPorofilePopup.close()
+        setTimeout(() => {
+          popupProfile.querySelector('.popup__submit-button').textContent = 'Сохранить'
+        }, 1000);
+
+
       })
   }
 })
@@ -173,8 +185,11 @@ const editAvatarPopup = new PopupWithForm({
       console.log(err); // выведем ошибку в консоль
    })
    .finally(()=>{
-    popupEditAvatar.querySelector('.popup__submit-button').textContent = 'Сохранить'
     editAvatarPopup.close()
+
+    setTimeout(() => {
+      popupEditAvatar.querySelector('.popup__submit-button').textContent = 'Сохранить'
+    }, 1000);
    })
 
   }
