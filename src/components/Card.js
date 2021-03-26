@@ -1,11 +1,12 @@
 export default class Card {
-  constructor( element, handleCardClick, handleDeleteCard, handleLikeAdd, handleLikeRemove, data){
+  constructor( element, handleCardClick, handleDeleteCard, handleLikeAdd, handleLikeRemove, data, userId){
     this._likeCount = data.likes.length
     this._cardPhoto = data.link;
     this._cardTitle = data.name;
     this._element = element;
     this._handleCardClick = handleCardClick;
     this._userId = data.owner._id
+    this._ownerId = userId
     this._handleDeleteCard = handleDeleteCard
     this._cardId = data._id
     this._handleLikeAdd = handleLikeAdd
@@ -14,7 +15,7 @@ export default class Card {
   }
 
   _getTemplate(){
-  const _elementTemplate = document.querySelector('#element').content;
+  const _elementTemplate = document.querySelector(`#${this._element}`).content;
   const _cardElement = _elementTemplate.querySelector(`.${this._element}`).cloneNode(true);
   return _cardElement
   }
@@ -27,7 +28,7 @@ export default class Card {
     this._cardElement.querySelector('.element__image').alt = this._cardTitle;
     this._cardElement.querySelector('.element__title').textContent = this._cardTitle;
     this._likes.forEach(item => {
-      if (item._id == '24761748b4d4960871a4b378'){
+      if (item._id == this._ownerId){
         this._cardElement.querySelector('.element__like').classList.toggle('element__like_active');
       }
     });
@@ -35,7 +36,7 @@ export default class Card {
     //   this._cardElement.querySelector('.element__like').classList.toggle('element__like_active');
     // }
     this._cardElement.querySelector('.element__like-coutner').textContent = this._likeCount;
-    if (this._userId != '24761748b4d4960871a4b378'){
+    if (this._userId != this._ownerId){
       this._cardElement.querySelector('.element__trash').remove()
     }
     return this._cardElement

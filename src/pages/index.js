@@ -20,7 +20,7 @@ import {editButton,
 import './index.css'
 import Api from "../components/Api.js"
 import PopupConfirm from "../components/PopupConfirm.js";
-
+let userId;
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-21',
   headers: {
@@ -28,16 +28,40 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
-api.getInitialCards()
-  .then((result)=>{
-    console.log(result)
-    result.forEach((item)=>{
-      cardsList.renderItems(item)
-    })
-  })
-  .catch((err) => {
+// api.getInitialCards()
+//   .then((result)=>{
+//     console.log(result)
+//     result.forEach((item)=>{
+//       cardsList.renderItems(item)
+//     })
+//   })
+//   .catch((err) => {
+//     console.log(err); // выведем ошибку в консоль
+//   })
+
+//   api.getUserInfo()
+// .then((result) => {
+//   userId = result._id
+//   userInfo.setUserInfo(result)
+
+// })
+// .catch((err) => {
+//   console.log(err); // выведем ошибку в консоль
+// });
+
+const promises = [api.getInitialCards(), api.getUserInfo()]
+Promise.all(promises)
+  .then((results) => {
+      userId = results[1]._id
+      userInfo.setUserInfo(results[1])
+      console.log(results[0])
+      results[0].forEach((item)=>{
+        cardsList.renderItems(item)
+      })
+  }).catch((err) => {
     console.log(err); // выведем ошибку в консоль
-  })
+  });
+
 
 const cardsList = new Section({
   items: '',
@@ -55,15 +79,7 @@ const cardsList = new Section({
 //     authorization: 'd94f3f5c-42c8-4dc8-aba6-4bc81ee9d748'
 //   }
 // }).then(res => res.json())
-api.getUserInfo()
-.then((result) => {
-  console.log(result);
-  userInfo.setUserInfo(result)
 
-})
-.catch((err) => {
-  console.log(err); // выведем ошибку в консоль
-});
 
 const confirmPopup = new PopupConfirm({
   popupSelector: popupConfirm,
@@ -116,7 +132,7 @@ function handleLikeRemove(cardId, cardElement){
 }
 
 function createCard(template, data){
-  const card = new Card(template, handleCardClick, handleDeleteCard, handleLikeAdd, handleLikeRemove, data);
+  const card = new Card(template, handleCardClick, handleDeleteCard, handleLikeAdd, handleLikeRemove, data, userId);
   const cardElement = card.generateCard();
   return cardElement
 }
@@ -248,7 +264,8 @@ profileAvatarButton.addEventListener(('click'), function () {
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__info-name',
-  jobSelector: '.profile__info-job'
+  jobSelector: '.profile__info-job',
+  avatarSelector: '.profile__avatar'
 })
 
 
