@@ -43,7 +43,7 @@ export default class FormValidator{
       this.buttonElement.classList.add(this._inactiveButtonClass);
       this.buttonElement.disabled = true;
     } else {
-      console.log(this.buttonElement)
+
       this.buttonElement.classList.remove(this._inactiveButtonClass);
       this.buttonElement.disabled = '';
     }
@@ -51,14 +51,14 @@ export default class FormValidator{
 
   _setEventListeners () {
     this.inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    console.log(this.inputList)
+
     this.buttonElement = this._formElement.querySelector(this._submitButtonSelector);
     this._toggleButtonState();
     this.inputList.forEach((inputElement) => {
 
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        console.log(inputElement.validity.valid)
+
         this._toggleButtonState();
       });
     });

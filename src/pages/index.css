@@ -38,4 +38,7 @@
 @import url(../blocks/popup/__form-input-error/popup__form-input-error.css);
 @import url(../blocks/popup/__form-input-error/_visible/popup__error_visible.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_error.css);
-
+@import url(../blocks/element/__like-container/element__like-container.css);
+@import url(../blocks/element/__like-coutner/element__like-coutner.css);
+@import url(../blocks/profile/__avatar-edit/profile__avatar-edit.css);
+@import url(../blocks/profile/__avatar-container/profile__avatar-container.css);

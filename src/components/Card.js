@@ -1,9 +1,16 @@
 export default class Card {
-  constructor(title, photo, element, handleCardClick){
-    this._cardPhoto = photo;
-    this._cardTitle = title;
+  constructor( element, handleCardClick, handleDeleteCard, handleLikeAdd, handleLikeRemove, data){
+    this._likeCount = data.likes.length
+    this._cardPhoto = data.link;
+    this._cardTitle = data.name;
     this._element = element;
     this._handleCardClick = handleCardClick;
+    this._userId = data.owner._id
+    this._handleDeleteCard = handleDeleteCard
+    this._cardId = data._id
+    this._handleLikeAdd = handleLikeAdd
+    this._handleLikeRemove = handleLikeRemove
+    this._likes = data.likes
   }
 
   _getTemplate(){
@@ -15,9 +22,22 @@ export default class Card {
   generateCard(){
     this._cardElement = this._getTemplate();
     this._setEventListeners();
+    console.log(this._likes)
     this._cardElement.querySelector('.element__image').src = this._cardPhoto;
     this._cardElement.querySelector('.element__image').alt = this._cardTitle;
     this._cardElement.querySelector('.element__title').textContent = this._cardTitle;
+    this._likes.forEach(item => {
+      if (item._id == '24761748b4d4960871a4b378'){
+        this._cardElement.querySelector('.element__like').classList.toggle('element__like_active');
+      }
+    });
+    // if (this._likes.forEach())){
+    //   this._cardElement.querySelector('.element__like').classList.toggle('element__like_active');
+    // }
+    this._cardElement.querySelector('.element__like-coutner').textContent = this._likeCount;
+    if (this._userId != '24761748b4d4960871a4b378'){
+      this._cardElement.querySelector('.element__trash').remove()
+    }
     return this._cardElement
   }
 
@@ -25,12 +45,22 @@ export default class Card {
 
     this._cardElement.querySelector('.element__image').addEventListener('click', this._handleCardClick.bind(this))
 
-    this._cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
+    this._cardElement.querySelector('.element__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('element__like_active');
+
+      this._handleLike(evt.target)
   });
-    this._cardElement.querySelector('.element__trash').addEventListener('click', function (evt) {
-      evt.target.closest('.element').remove();
+    this._cardElement.querySelector('.element__trash').addEventListener('click', (evt) => {
+      this._handleDeleteCard(evt.target, this._cardId)
+
   });
+  }
+  _handleLike(target){
+    if (target.classList.contains('element__like_active')){
+      this._handleLikeAdd(this._cardId, this._cardElement)
+    } else{
+      this._handleLikeRemove(this._cardId, this._cardElement)
+    }
   }
 }
 
