@@ -1,4 +1,5 @@
 .popup{
+  z-index: 14;
   font-family: 'Inter', Arial, sans-serif;
   position: fixed;
   display: flex;
